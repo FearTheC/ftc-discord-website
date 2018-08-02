@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7d4ce3c3998b711b8dec0a6846f1db4d",
+    "content-hash": "78a463b2ba78309149c19c7d927a17f7",
     "packages": [
         {
             "name": "aura/di",
@@ -510,6 +510,189 @@
             "time": "2018-01-09T20:05:19+00:00"
         },
         {
+            "name": "fearthec/ftc-discord-db-postgresql",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FearTheC/ftc-discord-db-postgresql.git",
+                "reference": "5a4e40067730f050e8172539ff3b3f78a32971af"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FearTheC/ftc-discord-db-postgresql/zipball/5a4e40067730f050e8172539ff3b3f78a32971af",
+                "reference": "5a4e40067730f050e8172539ff3b3f78a32971af",
+                "shasum": ""
+            },
+            "require": {
+                "fearthec/ftc-discord-model": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "FTC\\Discord\\Db\\Postgresql\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Quentin Bonaventure",
+                    "email": "quentin@bonaventure.xyz"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/FearTheC/ftc-discord-db-postgresql/tree/0.0.1",
+                "issues": "https://github.com/FearTheC/ftc-discord-db-postgresql/issues"
+            },
+            "time": "2018-08-02T07:44:37+00:00"
+        },
+        {
+            "name": "fearthec/ftc-discord-model",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FearTheC/ftc-discord-model.git",
+                "reference": "03f9702582b252e127edd698c6b9d8aad973e839"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FearTheC/ftc-discord-model/zipball/03f9702582b252e127edd698c6b9d8aad973e839",
+                "reference": "03f9702582b252e127edd698c6b9d8aad973e839",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.3",
+                "psr/container": "^1.0"
+            },
+            "require-dev": {
+                "league/container": "^2.4",
+                "phpunit/phpunit": "^7.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "FTC\\Discord\\": "src",
+                    "FTC\\Discord\\Test\\": "tests"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Quentin Bonaventure",
+                    "email": "quentin@bonaventure.xyz"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/FearTheC/ftc-discord-model/tree/0.0.1",
+                "issues": "https://github.com/FearTheC/ftc-discord-model/issues"
+            },
+            "time": "2018-08-02T07:37:19+00:00"
+        },
+        {
+            "name": "fearthec/ftc-discord-website-pushover",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FearTheC/ftc-discord-website-pushover.git",
+                "reference": "5ff53938c58f0b76619ebddd28d5e6c6cfe4cf4a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FearTheC/ftc-discord-website-pushover/zipball/5ff53938c58f0b76619ebddd28d5e6c6cfe4cf4a",
+                "reference": "5ff53938c58f0b76619ebddd28d5e6c6cfe4cf4a",
+                "shasum": ""
+            },
+            "require": {
+                "composer/composer": "^1.6",
+                "leonardoteixeira/pushover": "^1.2",
+                "psr/container": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "zf": {
+                    "config-provider": "FTC\\Notifier\\Pushover\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "FTC\\Notifier\\Pushover\\": "src/"
+                }
+            },
+            "scripts": {
+                "post-install-cmd": [
+                    "FTC\\Notifier\\Pushover\\ComposerScripts::installConfigFiles"
+                ],
+                "post-update-cmd": [
+                    "FTC\\Notifier\\Pushover\\ComposerScripts::installConfigFiles"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Quentin Bonaventure",
+                    "email": "quentin@bonaventure.xyz"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/FearTheC/ftc-discord-website-pushover/tree/0.0.1",
+                "issues": "https://github.com/FearTheC/ftc-discord-website-pushover/issues"
+            },
+            "time": "2018-08-02T08:27:11+00:00"
+        },
+        {
+            "name": "fearthec/ftc-discord-website-trello",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FearTheC/ftc-discord-website-trello.git",
+                "reference": "2383fe391aa53cafd14cdb2331e01144995f5d24"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FearTheC/ftc-discord-website-trello/zipball/2383fe391aa53cafd14cdb2331e01144995f5d24",
+                "reference": "2383fe391aa53cafd14cdb2331e01144995f5d24",
+                "shasum": ""
+            },
+            "require": {
+                "composer/composer": "^1.6"
+            },
+            "type": "library",
+            "extra": {
+                "zf": {
+                    "config-provider": "FTC\\Trello\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "FTC\\Trello\\": "src/"
+                }
+            },
+            "scripts": {
+                "post-install-cmd": [
+                    "php -r \"copy('config/trello.local.php.dist', '/app/config/autoload/trello.local.php');\""
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Quentin Bonaventure",
+                    "email": "quentin@bonaventure.xyz"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/FearTheC/ftc-discord-website-trello/tree/0.0.1",
+                "issues": "https://github.com/FearTheC/ftc-discord-website-trello/issues"
+            },
+            "time": "2018-08-02T08:28:28+00:00"
+        },
+        {
             "name": "fig/http-message-util",
             "version": "1.1.2",
             "source": {
@@ -803,7 +986,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v5.6.28",
+            "version": "v5.6.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -847,16 +1030,16 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v5.6.28",
+            "version": "v5.6.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "97ca44c95392ce0a41749fa47b953734d88b94b1"
+                "reference": "c684cb5e77e213020f7a4ed213d94b2b384c2951"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/97ca44c95392ce0a41749fa47b953734d88b94b1",
-                "reference": "97ca44c95392ce0a41749fa47b953734d88b94b1",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/c684cb5e77e213020f7a4ed213d94b2b384c2951",
+                "reference": "c684cb5e77e213020f7a4ed213d94b2b384c2951",
                 "shasum": ""
             },
             "require": {
@@ -901,7 +1084,7 @@
             ],
             "description": "The Illuminate Support package.",
             "homepage": "https://laravel.com",
-            "time": "2018-07-04T01:23:57+00:00"
+            "time": "2018-07-26T15:32:11+00:00"
         },
         {
             "name": "ircmaxell/random-lib",
@@ -1116,16 +1299,16 @@
         },
         {
             "name": "lcobucci/jwt",
-            "version": "3.2.2",
+            "version": "3.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lcobucci/jwt.git",
-                "reference": "0b5930be73582369e10c4d4bb7a12bac927a203c"
+                "reference": "01da822b3c2982ca9f2a1234f802a3ec001527ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lcobucci/jwt/zipball/0b5930be73582369e10c4d4bb7a12bac927a203c",
-                "reference": "0b5930be73582369e10c4d4bb7a12bac927a203c",
+                "url": "https://api.github.com/repos/lcobucci/jwt/zipball/01da822b3c2982ca9f2a1234f802a3ec001527ec",
+                "reference": "01da822b3c2982ca9f2a1234f802a3ec001527ec",
                 "shasum": ""
             },
             "require": {
@@ -1170,7 +1353,7 @@
                 "JWS",
                 "jwt"
             ],
-            "time": "2017-09-01T08:23:26+00:00"
+            "time": "2018-07-29T14:38:43+00:00"
         },
         {
             "name": "league/oauth2-client",
@@ -1914,174 +2097,6 @@
             "time": "2018-01-27T16:01:43+00:00"
         },
         {
-            "name": "qbonaventure/discord-db-postgresql",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/QBonaventure/discord-db-postgresql.git",
-                "reference": "648df417a9f4d2153c9e27c80c0451fcda90259a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/QBonaventure/discord-db-postgresql/zipball/648df417a9f4d2153c9e27c80c0451fcda90259a",
-                "reference": "648df417a9f4d2153c9e27c80c0451fcda90259a",
-                "shasum": ""
-            },
-            "require": {
-                "qbonaventure/discord-model": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "FTC\\Discord\\Db\\Postgresql\\": "src"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Quentin Bonaventure",
-                    "email": "quentin@bonaventure.xyz"
-                }
-            ],
-            "support": {
-                "source": "https://github.com/QBonaventure/discord-db-postgresql/tree/master",
-                "issues": "https://github.com/QBonaventure/discord-db-postgresql/issues"
-            },
-            "time": "2018-07-30T10:42:25+00:00"
-        },
-        {
-            "name": "qbonaventure/discord-model",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/QBonaventure/discord-model.git",
-                "reference": "3d8bf32c2ce4ba40d56dc7e20f413eeb3b29d426"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/QBonaventure/discord-model/zipball/3d8bf32c2ce4ba40d56dc7e20f413eeb3b29d426",
-                "reference": "3d8bf32c2ce4ba40d56dc7e20f413eeb3b29d426",
-                "shasum": ""
-            },
-            "require-dev": {
-                "league/container": "^2.4",
-                "phpunit/phpunit": "^7.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "FTC\\Discord\\": "src",
-                    "FTC\\Discord\\Test\\": "tests"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Quentin Bonaventure",
-                    "email": "quentin@bonaventure.xyz"
-                }
-            ],
-            "support": {
-                "source": "https://github.com/QBonaventure/discord-model/tree/master",
-                "issues": "https://github.com/QBonaventure/discord-model/issues"
-            },
-            "time": "2018-07-30T10:41:17+00:00"
-        },
-        {
-            "name": "qbonaventure/discord-website-pushover",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/QBonaventure/discord-website-pushover.git",
-                "reference": "f1db5d33f40d66e164b0ccafa836ad59596725d6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/QBonaventure/discord-website-pushover/zipball/f1db5d33f40d66e164b0ccafa836ad59596725d6",
-                "reference": "f1db5d33f40d66e164b0ccafa836ad59596725d6",
-                "shasum": ""
-            },
-            "require": {
-                "composer/composer": "^1.6",
-                "leonardoteixeira/pushover": "^1.2",
-                "psr/container": "^1.0"
-            },
-            "type": "library",
-            "extra": {
-                "zf": {
-                    "config-provider": "FTC\\Notifier\\Pushover\\ConfigProvider"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "FTC\\Notifier\\Pushover\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Quentin Bonaventure",
-                    "email": "quentin@bonaventure.xyz"
-                }
-            ],
-            "time": "2018-07-19T08:50:29+00:00"
-        },
-        {
-            "name": "qbonaventure/discord-website-trello",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/QBonaventure/discord-website-trello.git",
-                "reference": "49209bea2719966328787e4da79b9e92601b268c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/QBonaventure/discord-website-trello/zipball/49209bea2719966328787e4da79b9e92601b268c",
-                "reference": "49209bea2719966328787e4da79b9e92601b268c",
-                "shasum": ""
-            },
-            "require": {
-                "composer/composer": "^1.6"
-            },
-            "type": "library",
-            "extra": {
-                "zf": {
-                    "config-provider": "FTC\\Trello\\ConfigProvider"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "FTC\\Trello\\": "src/"
-                }
-            },
-            "scripts": {
-                "post-install-cmd": [
-                    "php -r \"copy('config/trello.local.php.dist', '/app/config/autoload/trello.local.php');\""
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Quentin Bonaventure",
-                    "email": "quentin@bonaventure.xyz"
-                }
-            ],
-            "support": {
-                "source": "https://github.com/QBonaventure/discord-website-trello/tree/master",
-                "issues": "https://github.com/QBonaventure/discord-website-trello/issues"
-            },
-            "time": "2018-07-19T12:09:38+00:00"
-        },
-        {
             "name": "rmccue/requests",
             "version": "v1.7.0",
             "source": {
@@ -2443,16 +2458,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v4.1.2",
+            "version": "v4.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "5c31f6a97c1c240707f6d786e7e59bfacdbc0219"
+                "reference": "ca80b8ced97cf07390078b29773dc384c39eee1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/5c31f6a97c1c240707f6d786e7e59bfacdbc0219",
-                "reference": "5c31f6a97c1c240707f6d786e7e59bfacdbc0219",
+                "url": "https://api.github.com/repos/symfony/console/zipball/ca80b8ced97cf07390078b29773dc384c39eee1f",
+                "reference": "ca80b8ced97cf07390078b29773dc384c39eee1f",
                 "shasum": ""
             },
             "require": {
@@ -2507,20 +2522,20 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2018-07-16T14:05:40+00:00"
+            "time": "2018-07-26T11:24:31+00:00"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v4.1.2",
+            "version": "v4.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "562bf7005b55fd80d26b582d28e3e10f2dd5ae9c"
+                "reference": "2e30335e0aafeaa86645555959572fe7cea22b43"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/562bf7005b55fd80d26b582d28e3e10f2dd5ae9c",
-                "reference": "562bf7005b55fd80d26b582d28e3e10f2dd5ae9c",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/2e30335e0aafeaa86645555959572fe7cea22b43",
+                "reference": "2e30335e0aafeaa86645555959572fe7cea22b43",
                 "shasum": ""
             },
             "require": {
@@ -2557,20 +2572,20 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2018-05-30T07:26:09+00:00"
+            "time": "2018-07-26T11:24:31+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v4.1.2",
+            "version": "v4.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "84714b8417d19e4ba02ea78a41a975b3efaafddb"
+                "reference": "e162f1df3102d0b7472805a5a9d5db9fcf0a8068"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/84714b8417d19e4ba02ea78a41a975b3efaafddb",
-                "reference": "84714b8417d19e4ba02ea78a41a975b3efaafddb",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/e162f1df3102d0b7472805a5a9d5db9fcf0a8068",
+                "reference": "e162f1df3102d0b7472805a5a9d5db9fcf0a8068",
                 "shasum": ""
             },
             "require": {
@@ -2606,7 +2621,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2018-06-19T21:38:16+00:00"
+            "time": "2018-07-26T11:24:31+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -2724,16 +2739,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v4.1.2",
+            "version": "v4.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "1d1677391ecf00d1c5b9482d6050c0c27aa3ac3a"
+                "reference": "f01fc7a4493572f7f506c49dcb50ad01fb3a2f56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/1d1677391ecf00d1c5b9482d6050c0c27aa3ac3a",
-                "reference": "1d1677391ecf00d1c5b9482d6050c0c27aa3ac3a",
+                "url": "https://api.github.com/repos/symfony/process/zipball/f01fc7a4493572f7f506c49dcb50ad01fb3a2f56",
+                "reference": "f01fc7a4493572f7f506c49dcb50ad01fb3a2f56",
                 "shasum": ""
             },
             "require": {
@@ -2769,20 +2784,20 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2018-05-31T10:17:53+00:00"
+            "time": "2018-07-26T11:24:31+00:00"
         },
         {
             "name": "symfony/translation",
-            "version": "v4.1.2",
+            "version": "v4.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "2dd74d6b2dcbd46a93971e6ce7d245cf3123e957"
+                "reference": "6fcd1bd44fd6d7181e6ea57a6f4e08a09b29ef65"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/2dd74d6b2dcbd46a93971e6ce7d245cf3123e957",
-                "reference": "2dd74d6b2dcbd46a93971e6ce7d245cf3123e957",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/6fcd1bd44fd6d7181e6ea57a6f4e08a09b29ef65",
+                "reference": "6fcd1bd44fd6d7181e6ea57a6f4e08a09b29ef65",
                 "shasum": ""
             },
             "require": {
@@ -2838,7 +2853,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2018-07-23T08:20:20+00:00"
+            "time": "2018-07-26T11:24:31+00:00"
         },
         {
             "name": "team-reflex/oauth2-discord",
@@ -3045,16 +3060,16 @@
         },
         {
             "name": "zendframework/zend-diactoros",
-            "version": "1.8.3",
+            "version": "1.8.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-diactoros.git",
-                "reference": "72c13834fb3db2a962e913758b384ff2e6425d6e"
+                "reference": "736ffa7c2bfa4a60e8a10acb316fa2ac456c5fba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/72c13834fb3db2a962e913758b384ff2e6425d6e",
-                "reference": "72c13834fb3db2a962e913758b384ff2e6425d6e",
+                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/736ffa7c2bfa4a60e8a10acb316fa2ac456c5fba",
+                "reference": "736ffa7c2bfa4a60e8a10acb316fa2ac456c5fba",
                 "shasum": ""
             },
             "require": {
@@ -3104,7 +3119,7 @@
                 "psr",
                 "psr-7"
             ],
-            "time": "2018-07-24T21:54:38+00:00"
+            "time": "2018-08-01T13:47:49+00:00"
         },
         {
             "name": "zendframework/zend-escaper",
@@ -3616,16 +3631,16 @@
         },
         {
             "name": "zendframework/zend-expressive-helpers",
-            "version": "5.1.1",
+            "version": "5.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-expressive-helpers.git",
-                "reference": "3f68349efc8cb6218992d029eae3681b38d6cf2b"
+                "reference": "c4db15318ae53965794f46618535fc61dd058ea7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-expressive-helpers/zipball/3f68349efc8cb6218992d029eae3681b38d6cf2b",
-                "reference": "3f68349efc8cb6218992d029eae3681b38d6cf2b",
+                "url": "https://api.github.com/repos/zendframework/zend-expressive-helpers/zipball/c4db15318ae53965794f46618535fc61dd058ea7",
+                "reference": "c4db15318ae53965794f46618535fc61dd058ea7",
                 "shasum": ""
             },
             "require": {
@@ -3672,7 +3687,7 @@
                 "zend-expressive",
                 "zf"
             ],
-            "time": "2018-07-25T18:28:15+00:00"
+            "time": "2018-07-26T20:05:23+00:00"
         },
         {
             "name": "zendframework/zend-expressive-platesrenderer",
@@ -5876,10 +5891,10 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "qbonaventure/discord-db-postgresql": 20,
-        "qbonaventure/discord-model": 20,
-        "qbonaventure/discord-website-pushover": 20,
-        "qbonaventure/discord-website-trello": 20,
+        "fearthec/ftc-discord-db-postgresql": 20,
+        "fearthec/ftc-discord-model": 20,
+        "fearthec/ftc-discord-website-pushover": 20,
+        "fearthec/ftc-discord-website-trello": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": false,
