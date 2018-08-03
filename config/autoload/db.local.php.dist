@@ -4,8 +4,8 @@ return [
     'core-db' => [
         'host' => getenv('FTCBOT_DB_HOST'),
         'port' => getenv('FTCBOT_DB_PORT'),
-        'user' => getenv('FTCBOT_DB_USER'),
-        'password' => getenv('FTCBOT_DB_PASSWORD'),
+        'user' => file_get_contents('/run/secrets/ftcbot-db-user'),
+        'password' => file_get_contents('/run/secrets/ftcbot-db-password'),
         'database' => getenv('FTCBOT_DB_DBNAME'),
         'cache' => [
             'server' => getenv('FTCBOT_CORE_CACHE_SERVER'),
