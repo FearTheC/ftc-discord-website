@@ -172,6 +172,39 @@ span.member-role-item
 
 
 
+.rbac-item h1 {
+	display: inline;
+	float: left;
+}
+
+
+.rbac-item > div
+{
+	position: relative;
+	float: left;
+}
+
+.rbac-item .removable-item
+{
+	float: left;
+	margin: 10px;
+}
+
+.rbac-item select {
+	float: left;
+	clear: left;
+	position: relative;
+	top: -10px;
+}
+
+
+section.rbac-item {
+	border-bottom: 1px solid lightgrey;
+    height: 90px;
+    clear: both;
+}
+
+
 
 .app-footer
 {
