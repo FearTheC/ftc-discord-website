@@ -1,4 +1,4 @@
-<div>
+<section class="rbac-item">
     <h1>
     	<?= $routeName ?>
    	</h1>
@@ -10,15 +10,15 @@
        	    ]);
 
        	}); ?>
-   		<select onchange="location = this.value;">
-   			<option value="" selected>Select a role to add</option>
-   			<?php
-       			$ids = array_map(function($permission) { return (string) $permission->getRoleId(); }, $permissions);
-       			array_walk($roles->excludeByIds($ids)->getIterator(), function($role) use ($routeName) { ?>
-       			    <option value="<?= $this->url('admin.rbac.add', ['routeName' => $routeName, 'roleId' => (string) $role->getId()]) ?>">
-       			    	<?= $role->getName() ?>
-       			    </option>
-   			<?php }) ?>
-   		</select>
    	</div>
-</div>
+	<select onchange="location = this.value;">
+		<option value="" selected>Select a role to add</option>
+		<?php
+   			$ids = array_map(function($permission) { return (string) $permission->getRoleId(); }, $permissions);
+   			array_walk($roles->excludeByIds($ids)->getIterator(), function($role) use ($routeName) { ?>
+   			    <option value="<?= $this->url('admin.rbac.add', ['routeName' => $routeName, 'roleId' => (string) $role->getId()]) ?>">
+   			    	<?= $role->getName() ?>
+   			    </option>
+		<?php }) ?>
+	</select>
+</section>
