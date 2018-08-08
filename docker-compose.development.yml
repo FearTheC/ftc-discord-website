@@ -24,6 +24,14 @@ services:
       - .env
     expose:
       - "9000"
+    secrets:
+      - ftcbot-db-password
+      - ftcbot-db-user
+      - ftcbot-broker-password
+      - ftcbot-broker-username
+      - ftcbot-discord-auth-token
+      - ftcbot-discord-token
+      - ftcbot-website-session-key
     volumes:
       - .:/app/:z
       - .composer/auth.json:/root/.composer/auth.json
@@ -32,8 +40,6 @@ services:
     
   front-server:
     image: qbonaventure/discord-website-server:1
-    ports:
-      - "7610:80"
     volumes:
       - .:/app:z
       - website_nginx_logs:/var/log/nginx
@@ -57,6 +63,23 @@ services:
     networks:
       ftcbot_dev:
       
+      
+secrets:
+  ftcbot-db-password:
+    file: /var/docker-secrets/ftcbot/dev/ftcbot-db-password
+  ftcbot-db-user:
+    file: /var/docker-secrets/ftcbot/dev/ftcbot-db-user
+  ftcbot-broker-password:
+    file: /var/docker-secrets/ftcbot/dev/ftcbot-broker-password
+  ftcbot-broker-username:
+    file: /var/docker-secrets/ftcbot/dev/ftcbot-broker-username
+  ftcbot-discord-auth-token:
+    file: /var/docker-secrets/ftcbot/dev/ftcbot-discord-auth-token
+  ftcbot-discord-token:
+    file: /var/docker-secrets/ftcbot/dev/ftcbot-discord-token
+  ftcbot-website-session-key:
+    file: /var/docker-secrets/ftcbot/dev/ftcbot-website-session-key    
+    
 networks:
   ftcbot_dev:
     external: true
