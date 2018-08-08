@@ -1,4 +1,5 @@
 FROM php:7.2-fpm-alpine
+MAINTAINER Quentin Bonaventure <q.bonaventure@gmail.com>
 
 RUN apk --update --no-cache add \
     postgresql-dev; \
@@ -13,15 +14,15 @@ RUN apk --update --no-cache add \
 
 WORKDIR /app
 
+COPY ./composer.* /app/
+RUN  cd /app && composer install --no-dev
+
 COPY ./src/ /app/src/
 COPY ./public/ /app/public/
 COPY ./config/ /app/config/
 COPY ./bin/ /app/bin
-COPY ./composer.* /app/
 COPY ./data/ /app/data/
 COPY entrypoint.sh /
-
-RUN  cd /app && composer install --no-dev
 
 RUN cp /app/config/autoload/bot.local.php.dist /app/config/autoload/bot.local.php && \
     cp /app/config/autoload/db.local.php.dist /app/config/autoload/db.local.php && \
