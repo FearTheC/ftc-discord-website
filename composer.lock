@@ -597,12 +597,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FearTheC/ftc-discord-model.git",
-                "reference": "3d19b2d838b9b6fe51648fd591e141afd514737c"
+                "reference": "052ea10ed1f43111deb26bac2a470bd1ae4685a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FearTheC/ftc-discord-model/zipball/3d19b2d838b9b6fe51648fd591e141afd514737c",
-                "reference": "3d19b2d838b9b6fe51648fd591e141afd514737c",
+                "url": "https://api.github.com/repos/FearTheC/ftc-discord-model/zipball/052ea10ed1f43111deb26bac2a470bd1ae4685a9",
+                "reference": "052ea10ed1f43111deb26bac2a470bd1ae4685a9",
                 "shasum": ""
             },
             "require": {
@@ -633,7 +633,7 @@
                 "source": "https://github.com/FearTheC/ftc-discord-model/tree/master",
                 "issues": "https://github.com/FearTheC/ftc-discord-model/issues"
             },
-            "time": "2018-08-07T13:59:05+00:00"
+            "time": "2018-08-10T12:50:06+00:00"
         },
         {
             "name": "fearthec/ftc-discord-website-pushover",
