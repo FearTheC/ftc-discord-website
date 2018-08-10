@@ -25,6 +25,7 @@ return function (Application $app, MiddlewareFactory $factory, ContainerInterfac
     // The error handler should be the first (most outer) middleware to catch
     // all Exceptions.
     $app->pipe(ErrorHandler::class);
+    $app->pipe(App\Middleware\ContainerIdentifierMiddleware::class);
     $app->pipe(App\SessionMiddleware::class);
     $app->pipe(ServerUrlMiddleware::class);
     $app->pipe(GuildSetupMiddleware::class);
