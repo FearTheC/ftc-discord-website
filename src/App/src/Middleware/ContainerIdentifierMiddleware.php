@@ -50,7 +50,7 @@ class ContainerIdentifierMiddleware implements MiddlewareInterface
     {
         if ($element->getAttribute('rel') == 'stylesheet' && substr($element->getAttribute('href'), 0, 13) == '/stylesheets/') {
             $fileHash = md5(file_get_contents('./public'.$element->getAttribute('href')));
-            $element->setAttribute('href', 'https://cdn.fearthec.ovh/stylesheets/'.$fileHash.'.css');
+            $element->setAttribute('href', 'https://cdn.fearthec.io/stylesheets/'.$fileHash.'.css');
         }
     }
     
