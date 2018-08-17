@@ -2,6 +2,7 @@ FROM php:7.2-fpm-alpine
 MAINTAINER Quentin Bonaventure <q.bonaventure@gmail.com>
 
 RUN apk --update --no-cache add \
+    git \
     postgresql-dev; \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer; \
     docker-php-ext-install bcmath pgsql pdo pdo_pgsql && \
