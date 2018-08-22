@@ -11,7 +11,7 @@
 
 
 <?php if ($selectedMember):
-    $this->insert('partials::members/member-info', ['member' => $selectedMember, 'roles' => $roles]);
+$this->insert('partials::members/member-info', ['member' => $selectedMember, 'roles' => $roles, 'stats' => $selectedMemberStats]);
 else: ?>
 <section>
     <blockquote class="trello-board-compact">
