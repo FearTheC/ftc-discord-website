@@ -6,13 +6,13 @@
 
 
 <nav>
-	<a href="<?= $this->url('admin.roles'); ?>">
+	<a href="<?= $this->url('admin.roles', ['roleId' => null]); ?>">
 		Roles
 	</a>
-	<a href="<?= $this->url('admin.members'); ?>">
+	<a href="<?= $this->url('admin.members', ['memberId' => null]); ?>">
 		Members
 	</a>
-	<a href="<?= $this->url('admin.channels'); ?>">
+	<a href="<?= $this->url('admin.channels', ['channelId' => null]); ?>">
 		Channels
 	</a>
 	<a href="<?= $this->url('admin.rbac'); ?>">
