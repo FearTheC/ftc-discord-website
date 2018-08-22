@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cab7bc7a9c63ec74ce05097c8efa651d",
+    "content-hash": "7567869d44d749f634c53c7bbeb6f555",
     "packages": [
         {
             "name": "aura/di",
@@ -559,12 +559,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FearTheC/ftc-discord-db-postgresql.git",
-                "reference": "2942fe3cf22b1b6c3fc23730f34959b89448d1fe"
+                "reference": "e546351b00b300b1ec0bbe691236e8f12b860718"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FearTheC/ftc-discord-db-postgresql/zipball/2942fe3cf22b1b6c3fc23730f34959b89448d1fe",
-                "reference": "2942fe3cf22b1b6c3fc23730f34959b89448d1fe",
+                "url": "https://api.github.com/repos/FearTheC/ftc-discord-db-postgresql/zipball/e546351b00b300b1ec0bbe691236e8f12b860718",
+                "reference": "e546351b00b300b1ec0bbe691236e8f12b860718",
                 "shasum": ""
             },
             "require": {
@@ -586,10 +586,10 @@
                 }
             ],
             "support": {
-                "source": "https://github.com/FearTheC/ftc-discord-db-postgresql/tree/0.0.2",
+                "source": "https://github.com/FearTheC/ftc-discord-db-postgresql/tree/master",
                 "issues": "https://github.com/FearTheC/ftc-discord-db-postgresql/issues"
             },
-            "time": "2018-08-21T14:27:52+00:00"
+            "time": "2018-08-22T09:07:30+00:00"
         },
         {
             "name": "fearthec/ftc-discord-model",

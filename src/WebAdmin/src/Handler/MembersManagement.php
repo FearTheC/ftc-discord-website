@@ -15,6 +15,7 @@ use FTC\Discord\Model\ValueObject\Snowflake\RoleId;
 use FTC\Discord\Model\Aggregate\GuildMemberRepository;
 use FTC\Discord\Model\Aggregate\GuildRoleRepository;
 use Psr\Http\Server\MiddlewareInterface;
+use FTC\Discord\Model\ValueObject\Snowflake\UserId;
 
 class MembersManagement implements MiddlewareInterface
 {
@@ -51,8 +52,9 @@ class MembersManagement implements MiddlewareInterface
         $members = $this->membersRepository->getAll($guild->getId())->orderAlphabetically();
         $roles = $this->rolesRepository->getAll($guild->getId());
         
-        if ($selectedRoleId = (int) $request->getAttribute('memberId')) {
-            $data['selectedMember'] = $members->getById(RoleId::create($selectedRoleId));
+        if ($selectedMemberId = UserId::create((int) $request->getAttribute('memberId'))) {
+            $data['selectedMember'] = $members->getById($selectedMemberId);
+            $data['selectedMemberStats'] = $this->membersRepository->getMemberGuildStats($selectedMemberId, $guild->getId());
         }
         
         $data['members'] = $members;
