@@ -11,7 +11,6 @@ use Zend\Diactoros\Response\HtmlResponse;
 use Zend\Expressive\Template;
 use Zend\Expressive\Template\TemplateRendererInterface;
 use FTC\Discord\Model\Aggregate\Guild;
-use FTC\Discord\Model\ValueObject\Snowflake\RoleId;
 use FTC\Discord\Model\Aggregate\GuildMemberRepository;
 use FTC\Discord\Model\Aggregate\GuildRoleRepository;
 use Psr\Http\Server\MiddlewareInterface;
@@ -52,7 +51,8 @@ class MembersManagement implements MiddlewareInterface
         $members = $this->membersRepository->getAll($guild->getId())->orderAlphabetically();
         $roles = $this->rolesRepository->getAll($guild->getId());
         
-        if ($selectedMemberId = UserId::create((int) $request->getAttribute('memberId'))) {
+        if ($memberId = $request->getAttribute('memberId')) {
+            $selectedMemberId = UserId::create((int) $memberId);
             $data['selectedMember'] = $members->getById($selectedMemberId);
             $data['selectedMemberStats'] = $this->membersRepository->getMemberGuildStats($selectedMemberId, $guild->getId());
         }
