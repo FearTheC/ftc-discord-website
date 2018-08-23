@@ -12,6 +12,8 @@ RUN apk --update --no-cache add \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer; \
     mkdir /app && \
     rm -rf /var/cache/apk/*
+   
+ENV PATH="/app/vendor/bin:/app/bin:${PATH}"
 
 WORKDIR /app
 
