@@ -26,7 +26,7 @@ return function (Application $app, MiddlewareFactory $factory, ContainerInterfac
     // all Exceptions.
     $app->pipe(ErrorHandler::class);
     $app->pipe(App\Middleware\ContainerIdentifierMiddleware::class);
-    $app->pipe(App\SessionMiddleware::class);
+    $app->pipe(App\Session\SessionMiddleware::class);
     $app->pipe(ServerUrlMiddleware::class);
     $app->pipe(GuildSetupMiddleware::class);
 

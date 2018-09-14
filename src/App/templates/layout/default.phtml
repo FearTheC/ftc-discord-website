@@ -53,7 +53,7 @@ use FTC\Discord\Model\Aggregate\Guild;
                                 La Commu
                             </a>
                         </li>
-                        	<?php if ($user['user_id']): ?>
+                        	<?php if ($user['id']): ?>
                             <li class="nav-item">
                                 <a href="<?= $this->url('admin.home') ?>" class="nav-link">
                                     Administration
@@ -62,7 +62,7 @@ use FTC\Discord\Model\Aggregate\Guild;
                         <?php endif; ?>
                     </ul>
                 </div>
-                <?= $user['nickname'] ?>
+                <?= $user['username'] ?>
                 <?= $this->insert('app::user-menu')?>
             </div>
         </nav>

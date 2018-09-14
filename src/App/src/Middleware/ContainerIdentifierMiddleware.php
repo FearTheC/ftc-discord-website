@@ -16,11 +16,9 @@ class ContainerIdentifierMiddleware implements MiddlewareInterface
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler) : ResponseInterface
     {
         $response = $handler->handle($request);
-        
-        if ($response->getBody()->getSize()) {
+        if ($response->getBody()->getSize() && $response->getHeader('Content-Type') == 'text/html') {
             $response = $this->updateCssHrefs($response);
         }
-        
         return $response->withHeader('Instance', getenv('HOSTNAME'));
     }
     

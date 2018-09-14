@@ -1,6 +1,6 @@
 <div >
     <ul class="navbar-nav mr-auto">
-    	<?php if ($user['user_id']): ?>
+    	<?php if ($user['id']): ?>
     		<li class="nav-item">
     			<a href="<?= $this->url('my-profile') ?>" class="nav-link">Mon Profil</a>
     		</li>
@@ -9,7 +9,7 @@
     		</li>
         <?php else: ?>
     		<li class="nav-item">
-    			<a href="<?= $this->url('login') ?>" class="nav-link">Login</a>
+    			<a href="http://discord-oauth.fearthec.test/login" class="nav-link">Login</a>
     		</li>
     	<?php endif; ?>
 	</ul>

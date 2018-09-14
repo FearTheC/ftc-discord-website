@@ -6,10 +6,10 @@
 
 <?php if ($user['user_id']): ?>
     <p>
-	    Let's <a href="<?= $this->url('login') ?>">login</a> or back to the <?php if($this->e($previousUrl)): echo '<a href="'.$previousUrl.'">previous page</a> you were visiting, or maybe the'; endif; ?> <a href="/">Home Page</a>.
+	    Let's <a href="http://discord-oauth.fearthec.test/login">login</a> or back to the <?php if($this->e($previousUrl)): echo '<a href="'.$previousUrl.'">previous page</a> you were visiting, or maybe the'; endif; ?> <a href="/">Home Page</a>.
     </p>
 <?php else: ?>
 	<p>
-		Please <a href="<?= $this->url('login') ?>">login</a> !</p>
+		Please <a href="http://discord-oauth.fearthec.test/login">login</a> !</p>
 	<p>
 <?php endif; ?>

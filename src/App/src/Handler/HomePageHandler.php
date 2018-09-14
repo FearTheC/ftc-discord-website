@@ -8,13 +8,12 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Zend\Diactoros\Response\HtmlResponse;
-use Zend\Diactoros\Response\JsonResponse;
 use Zend\Expressive\Plates\PlatesRenderer;
 use Zend\Expressive\Router;
 use Zend\Expressive\Template;
 use Zend\Expressive\Twig\TwigRenderer;
 use Zend\Expressive\ZendView\ZendViewRenderer;
-use PSR7Sessions\Storageless\Http\SessionMiddleware;
+use App\Session\SessionMiddleware;
 
 class HomePageHandler implements RequestHandlerInterface
 {
