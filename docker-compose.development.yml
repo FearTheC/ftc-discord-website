@@ -35,8 +35,11 @@ services:
     volumes:
       - .:/app/:z
       - .composer/auth.json:/root/.composer/auth.json
+    extra_hosts:
+      - "discord-oauth.fearthec.test:172.24.0.2"
     networks:
       ftcbot_dev:
+      traefik:
     
   front-server:
     image: qbonaventure/discord-website-server:1

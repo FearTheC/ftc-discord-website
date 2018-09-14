@@ -38,6 +38,7 @@ return function (Application $app, MiddlewareFactory $factory, ContainerInterfac
     $app->get('/wiki', App\Handler\HomePageHandler::class, 'wiki');
     $app->get('/my-profile', App\Session\Handler\LoginHandler::class, 'my-profile');
     $app->get('/login', App\Session\Handler\LoginHandler::class, 'login');
+    $app->get('/login_callback', App\Session\Handler\LoginCallbackHandler::class, 'login.callback');
     $app->get('/logout', App\Session\Handler\LogoutHandler::class, 'logout');
     $app->get('/api/ping', App\Handler\PingHandler::class, 'api.ping');
 };

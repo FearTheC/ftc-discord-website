@@ -8,9 +8,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Discord\OAuth\Discord;
 use FTC\Discord\Model\Aggregate\Guild;
-use PSR7Sessions\Storageless\Http\SessionMiddleware;
 use Zend\Permissions\Rbac\Rbac;
 use FTC\Discord\Model\Aggregate\GuildWebsitePermissionRepository;
 use FTC\Discord\Model\ValueObject\Snowflake\RoleId;
@@ -23,6 +21,7 @@ use FTC\Discord\Model\Aggregate\GuildWebsitePermission;
 use FTC\Discord\Model\Aggregate\GuildRoleRepository;
 use FTC\Discord\Model\ValueObject\Permission;
 use FTC\Discord\Model\ValueObject\Snowflake\GuildId;
+use App\Session\SessionMiddleware;
 
 class AuthorizationMiddleware implements MiddlewareInterface
 {
@@ -103,8 +102,9 @@ class AuthorizationMiddleware implements MiddlewareInterface
     
     private function isGranted($user, $routeName)
     {
-        return (!empty(array_filter($user['roles'], function($roleId) use ($routeName) {
-            return $this->rbac->isGranted((string) $roleId, $routeName);
+        
+        return (!empty(array_filter($user['roles'], function($role) use ($routeName) {
+            return $this->rbac->isGranted((string) $role['role_id'], $routeName);
         })));
     }
     

@@ -15,7 +15,7 @@ return [
     ],
     'dependencies' => [
         'factories' => [
-            App\SessionMiddleware::class => App\Session\SessionMiddlewareFactory::class,
+            App\Session\SessionMiddleware::class => App\Container\Session\SessionMiddlewareFactory::class,
             App\Middleware\UserMiddleware::class => App\Middleware\UserMiddlewareFactory::class,
         ]
     ],

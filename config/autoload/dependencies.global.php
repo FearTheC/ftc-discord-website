@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 return [
     'dependencies' => [
@@ -30,11 +32,21 @@ return [
             App\Middleware\AuthenticationMiddleware::class => App\Container\Middleware\AuthenticationMiddlewareFactory::class,
             App\Middleware\AuthorizationMiddleware::class => App\Container\Middleware\AuthorizationMiddlewareFactory::class,
             App\Session\Handler\LoginHandler::class => App\Container\Session\Handler\LoginHandlerFactory::class,
+            App\Session\Handler\LoginCallbackHandler::class => App\Container\Session\Handler\LoginCallbackHandlerFactory::class,
             App\Middleware\GuildSetupMiddleware::class => App\Middleware\GuildSetupMiddlewareFactory::class,
             App\Middleware\CommandDispatcherMiddleware::class => App\Container\Middleware\CommandDispatcherMiddlewareFactory::class,
             
+            
+            \App\Session\JWSLoader::class => \App\Container\Session\JWSLoaderFactory::class,
+            
             'database' => FTC\Database\ClientFactory::class,
             'discord_oauth' => App\Container\OAuthFactory::class,
+            'http-client' => function() { return new GuzzleHttp\Client([
+                'base_uri' => 'http://discord-oauth.fearthec.test',
+                'defaults' => [
+                    'exceptions' => true
+                ]
+            ]); }
         ],
     ],
 ];
