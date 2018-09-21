@@ -19,10 +19,16 @@ class AuthenticationMiddleware implements MiddlewareInterface
       */
     private $template;
     
+    /**
+     * @var string
+     */
+    private $oauthServerUri;
     
-    public function __construct(TemplateRendererInterface $template)
+    
+    public function __construct(TemplateRendererInterface $template, $oauthServerUri)
     {
             $this->template = $template;
+            $this->oauthServerUri = $oauthServerUri;
     }
 
     
@@ -34,10 +40,10 @@ class AuthenticationMiddleware implements MiddlewareInterface
 
         if ($guild && $session->isEmpty()) {
             $session->set('user', [
-                'roles' => [$request->getAttribute(Guild::class)->getId()->__toString()],
+                'roles' => [['role_id' => $request->getAttribute(Guild::class)->getId()->__toString()]],
             ]);
         }
-
+        $this->template->addDefaultParam(TemplateRendererInterface::TEMPLATE_ALL, 'oauthServerUri', $this->oauthServerUri);
         $this->template->addDefaultParam(TemplateRendererInterface::TEMPLATE_ALL, 'user', $session->get('user'));
         
         return $handler->handle($request);

@@ -41,12 +41,7 @@ return [
             
             'database' => FTC\Database\ClientFactory::class,
             'discord_oauth' => App\Container\OAuthFactory::class,
-            'http-client' => function() { return new GuzzleHttp\Client([
-                'base_uri' => 'http://discord-oauth.fearthec.test',
-                'defaults' => [
-                    'exceptions' => true
-                ]
-            ]); }
+            'http-client' => App\Container\HttpClientFactory::class,
         ],
     ],
 ];
