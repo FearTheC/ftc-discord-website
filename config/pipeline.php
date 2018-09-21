@@ -51,6 +51,7 @@ return function (Application $app, MiddlewareFactory $factory, ContainerInterfac
     // Register the routing middleware in the middleware pipeline.
     // This middleware registers the Zend\Expressive\Router\RouteResult request attribute.
     $app->pipe(RouteMiddleware::class);
+    $app->pipe(AuthenticationMiddleware::class);
     $app->pipe(AuthorizationMiddleware::class);
 
     // The following handle routing failures for common conditions:
@@ -67,7 +68,7 @@ return function (Application $app, MiddlewareFactory $factory, ContainerInterfac
     $app->pipe(UrlHelperMiddleware::class);
     
     
-    $app->pipe(AuthenticationMiddleware::class);
+//     $app->pipe(AuthenticationMiddleware::class);
 //     $app->pipe(UserMiddleware::class);
 
     // Add more middleware here that needs to introspect the routing results; this

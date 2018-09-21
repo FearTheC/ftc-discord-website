@@ -13,7 +13,8 @@ class AuthenticationMiddlewareFactory
     public function __invoke(ContainerInterface $container) : AuthenticationMiddleware
     {
         $template = $container->get(TemplateRendererInterface::class);
+        $config = $container->get('config')->offsetGet('session');
         
-        return new AuthenticationMiddleware($template);
+        return new AuthenticationMiddleware($template, $config['oauth_server_uri']);
     }
 }
