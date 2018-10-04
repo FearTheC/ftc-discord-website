@@ -1,7 +1,7 @@
-<?php $this->layout('layout::default', ['title' => '403 Unauthorized']) ?>
+<?php $this->layout('layout::error', ['title' => '403 Unauthorized']) ?>
 
-<h1>Oops!</h1>
-<p>You don't have access to this page !</p>
+<h1>Oops! This wonderful world isn't built yet... or has been destroyed!</h1>
+
 
 <?php if ($user['user_id']): ?>
     <p>
@@ -9,6 +9,6 @@
     </p>
 <?php else: ?>
 	<p>
-		Please <a href="<?= $oauthServerUri ?>">login</a> !</p>
+		If you think your one of the chosen few that may walk this land, please <a href="<?= $oauthServerUri ?>">login</a> !</p>
 	<p>
 <?php endif; ?>
