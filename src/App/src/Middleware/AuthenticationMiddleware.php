@@ -43,6 +43,7 @@ class AuthenticationMiddleware implements MiddlewareInterface
                 'roles' => [['role_id' => $request->getAttribute(Guild::class)->getId()->__toString()]],
             ]);
         }
+
         $this->template->addDefaultParam(TemplateRendererInterface::TEMPLATE_ALL, 'oauthServerUri', $this->oauthServerUri);
         $this->template->addDefaultParam(TemplateRendererInterface::TEMPLATE_ALL, 'user', $session->get('user'));
         

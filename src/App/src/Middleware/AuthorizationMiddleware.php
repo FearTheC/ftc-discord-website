@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 declare(strict_types=1);
 
@@ -65,18 +65,11 @@ class AuthorizationMiddleware implements MiddlewareInterface
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler) : ResponseInterface
     {
         $guild = $request->getAttribute(Guild::class);
-        
-        if (!$guild) {
-            return $handler->handle($request);
-        }
-        
         $session = $request->getAttribute(SessionMiddleware::SESSION_ATTRIBUTE);
         $routeName = $request->getAttribute(RouteResult::class)->getMatchedRouteName();
         $everyoneRole = $request->getAttribute('@everyone');
         
-        $permissions = $this->permissionRepository->getGuildPermissions($guild->getId());
-        $this->addRbacRoles($guild->getRoles());
-        $this->addRbacPermissions($permissions);
+        $permissions = $this->initializeRbacPermissions($guild);
 
         if (!$permissions->hasForRoute($routeName)) {
             $this->addAdministratorPermission($guild->getId(), $routeName);
@@ -84,25 +77,54 @@ class AuthorizationMiddleware implements MiddlewareInterface
         
         $this->templateRenderer->addDefaultParam(TemplateRendererInterface::TEMPLATE_ALL, 'rbac', $this->rbac);
         
-        if ($this->rbac->isGranted((string) $everyoneRole->getId(), $routeName)) {
+        
+        
+        // Most simple : a visitor allowed to view a page on an active website
+        if ($this->rbac->isGranted((string) $everyoneRole->getId(), $routeName)
+            && $guild->isDomainActive()
+            ) {
             return $handler->handle($request);
         }
         
         $user = $session->get('user');
-        if ($user && ($guild->getOwnerId()->get() == $user['user_id'] OR $this->isGranted($user, $routeName))) {
+        
+        /**
+         * We allow :
+         * - any user on login/logout pages anyway, so that they may identify ;
+         * - when the website's active, on any allowed pages for their roles ;
+         * - when the website's inactive, only the owner can browse it.
+         */
+        if (in_array(substr($routeName, 0, 6), ['login.', 'logout']) OR
+            $guild->isDomainActive() && $this->isGranted($user, $routeName) OR
+            !$guild->isDomainActive() && $guild->getOwnerId()->get() == $user['id']
+         ) {
             $this->templateRenderer->addDefaultParam(TemplateRendererInterface::TEMPLATE_ALL, 'user', $user);
             return $handler->handle($request);
         }
-        
+
         $previousUrl = $request->getHeaders()['referer'][0];
-        
         return new HtmlResponse($this->templateRenderer->render("error::403", ['previousUrl' => $previousUrl], 403));
+    }
+    
+    
+    /**
+     * Sets base permissions
+     * 
+     * @param Guild $guild
+     * @return GuildWebsitePermissionCollection
+     */
+    private function initializeRbacPermissions(Guild $guild) : GuildWebsitePermissionCollection
+    {
+        $permissions = $this->permissionRepository->getGuildPermissions($guild->getId());
+        $this->addRbacRoles($guild->getRoles());
+        $this->addRbacPermissions($permissions);
+        
+        return $permissions;
     }
     
     
     private function isGranted($user, $routeName)
     {
-        
         return (!empty(array_filter($user['roles'], function($role) use ($routeName) {
             return $this->rbac->isGranted((string) $role['role_id'], $routeName);
         })));
@@ -128,6 +150,15 @@ class AuthorizationMiddleware implements MiddlewareInterface
         );
     }
     
+    /**
+     * Records new permission for administrators for unknown route. 
+     * 
+     * Creates a permission entry for the administrator in the DB when a
+     * route, new and never reached, hasn't yet registered yet.
+     * 
+     * @param GuildId $guildId
+     * @param string $routeName
+     */
     private function addAdministratorPermission(GuildId $guildId, string $routeName)
     {
         $adminRoles = $this->rolesRepository->findByPermission($guildId, new Permission(Permission::ADMINISTRATOR));

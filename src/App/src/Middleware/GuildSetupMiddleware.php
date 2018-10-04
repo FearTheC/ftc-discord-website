@@ -43,6 +43,7 @@ class GuildSetupMiddleware implements MiddlewareInterface
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler) : ResponseInterface
     {
         $domainName = DomainName::create($request->getHeader('host')[0]);
+        
 
         if ($guild = $this->guildRepository->findByDomainName($domainName)) {
             $everyoneRole = $this->guildRoleRepository->getEveryoneRole($guild->getId());
@@ -53,9 +54,8 @@ class GuildSetupMiddleware implements MiddlewareInterface
             return  $handler->handle($request);
         }
         
-        
         $previousUrl = $request->getHeaders()['referer'][0];
-        return new HtmlResponse($this->templateRenderer->render("error::404", ['previousUrl' => $previousUrl], 404));
+        return new HtmlResponse($this->templateRenderer->render("error::global-404", ['previousUrl' => $previousUrl], 404));
 
     }
     
